@@ -8,7 +8,7 @@ module.exports = {
   ],
   ignorePatterns: ['dist', '.eslintrc.cjs'],
   parser: '@typescript-eslint/parser',
-  plugins: ['react-refresh', 'prettier'],
+  plugins: ['react-refresh', 'prettier', 'postcss-modules',],
   rules: {
     "prettier/prettier": "error",
     "@typescript-eslint/explicit-module-boundary-types": "off",
@@ -19,4 +19,18 @@ module.exports = {
       { allowConstantExport: true },
     ],
   },
+  overrides: [
+    {
+      files: ['*.ts', '*.tsx', '*.css'],
+      parser: '@typescript-eslint/parser',
+      rules: {
+        'postcss-modules/no-undef-class': 'off',
+        'postcss-modules/no-unused-class': 'off',
+        'postcss-modules/named-exports': 'off',
+      },
+      extends: [
+        'plugin:@typescript-eslint/recommended',
+      ],
+    },
+  ],
 }

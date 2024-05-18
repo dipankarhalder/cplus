@@ -23,9 +23,13 @@
     /* core */
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./*"]
+      "@/*": ["./src/*"]
     }
   },
-  "include": ["src"],
+  "include": ["src", "src/components", "src/lib"],
+  "exclude": [
+    "node_modules",
+    "dist"
+  ],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
